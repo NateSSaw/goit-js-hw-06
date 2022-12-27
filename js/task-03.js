@@ -14,10 +14,11 @@ const images = [
 ];
 
 const listEl = document.querySelector(".gallery");
-const createImgEl = images.map((image) => {
-  const addElToList = listEl.insertAdjacentHTML(
-    "beforeend",
-    `<li><img src=${image.url} alt='${image.alt}'width = 200 height = 150></li>`
-  );
-  return addElToList;
-});
+const img = images
+  .map(
+    (image) =>
+      `<li><img src=${image.url} alt='${image.alt}'width = 200 height = 150></li>`
+  )
+  .join("");
+
+listEl.insertAdjacentHTML("afterbegin", img);
